@@ -1,0 +1,20 @@
+<div class="chat-container">
+  <h2>Chat en temps réel</h2>
+
+  <div>
+  <label for="username">Pseudo :</label>
+  <input type="text" id="username" [value]="username()" (input)="username.set($event.target.value)" placeholder="Votre pseudo…"/>
+</div>
+
+  <div class="messages">
+    @for (m of chatService.messages(); track m) {
+    <div class="message"><strong>{{ m.user }}</strong> : {{ m.content }}</div>
+  }
+  </div>
+
+  <div class="input-area">
+    <label for="msg">Message</label>
+    <input id="msg" [(ngModel)]="message" placeholder="Votre message…" />
+    <button (click)="send()">Envoyer</button>
+  </div>
+</div>
