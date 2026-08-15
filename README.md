@@ -59,6 +59,18 @@ ng serve
 
 Frontend runs on: http://localhost:4200
 
+### 3. Set Up the Database (PostgreSQL)
+
+Note: the chat PoC itself does not require a database (messages are not persisted). This schema is provided for the full application's data layer, as required by the project deliverables.
+
+The `database/` folder contains the full relational schema for the application (not limited to the chat feature).
+
+```bash
+psql -U <your_user> -d <your_database> -f database/schema_your_car_your_way.sql
+```
+
+Requires PostgreSQL 18.4.
+
 ## Usage
 
 1. Open http://localhost:4200 in two browser tabs
@@ -71,7 +83,8 @@ Frontend runs on: http://localhost:4200
 ```bash
 root/
  ├── chat-front/   # Angular application
- └── chat-poc/     # Spring Boot application
+ ├── chat-poc/     # Spring Boot application
+ └── database/     # PostgreSQL schema for the full application
 ```
 
 ---
